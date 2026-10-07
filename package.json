@@ -1,0 +1,9 @@
+{
+  "name": "demo-jenkins",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "node --test index.test.js",
+    "test:unit": "node --test index.test.js",
+    "lint": "node --check index.js"
+  }
+}
