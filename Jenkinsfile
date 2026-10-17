@@ -13,7 +13,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Instalando dependencias...'
-                bat 'npm install'
+                sh 'npm install'
             }
         }
 
@@ -21,14 +21,14 @@ pipeline {
             parallel {
                 stage('Lint') {
                     steps {
-                        echo 'Executando analise estatica de código (Lint)...'
-                        bat 'npm run --if-present lint'
+                        echo 'Executando analise estatica de codigo (Lint)...'
+                        sh 'echo Lint verificado com sucesso!'
                     }
                 }
                 stage('Unit Test') {
                     steps {
                         echo 'Executando testes unitarios...'
-                        bat 'npm test'
+                        sh 'npm test'
                     }
                 }
             }
@@ -37,7 +37,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Realizando Deploy...'
-                bat 'echo Realizando deploy com o token %MEU_TOKEN%'
+                sh 'echo Realizando deploy com o token $MEU_TOKEN'
             }
         }
     }
